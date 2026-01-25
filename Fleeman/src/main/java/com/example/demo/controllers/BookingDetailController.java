@@ -44,14 +44,14 @@ public class BookingDetailController {
         }
     }
 
-    // Create a new booking detail
+    // Create a new booking detail entry
     @PostMapping("/details")
     public ResponseEntity<BookingDetail> createBookingDetail(@RequestBody BookingDetail bookingDetail) {
         BookingDetail savedBookingDetail = bookingDetailService.saveBookingDetail(bookingDetail);
         return new ResponseEntity<>(savedBookingDetail, HttpStatus.CREATED);
     }
 
-    // Update an existing booking detail
+    // Update an existing booking detail entry
     @PutMapping("/details/{id}")
     public ResponseEntity<BookingDetail> updateBookingDetail(@PathVariable("id") Long id, @RequestBody BookingDetail bookingDetail) {
         BookingDetail existingBookingDetail = bookingDetailService.getBookingDetailById(id);
@@ -64,7 +64,7 @@ public class BookingDetailController {
         }
     }
 
-    // Delete a booking detail
+    // Delete a booking detail entry
     @DeleteMapping("/details/{id}")
     public ResponseEntity<Void> deleteBookingDetail(@PathVariable("id") Long id) {
         BookingDetail existingBookingDetail = bookingDetailService.getBookingDetailById(id);
